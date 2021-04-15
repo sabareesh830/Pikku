@@ -14,7 +14,7 @@ import { useHistory } from 'react-router-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-const OTP = () => {
+const OTP = ({navigation}) => {
     const history = useHistory()
     const [mobileNumber, setMobileNumber] = useState('8309890570')
     const [otp, setoTp] = useState(null)
@@ -35,7 +35,7 @@ const OTP = () => {
             <View style={page.formFeild}>
                 <TextInput disabled="true" keyboardType={Platform.OS === 'android' ? "numeric" : "number-pad"} mode="outlined" value={mobileNumber} placeholder="Enter Mobile Number" />
                 <TextInput keyboardType={Platform.OS === 'android' ? "numeric" : "number-pad"} mode="outlined" onChangeText={e => handleOTP(e)} value={otp} placeholder="Enter OTP" />
-                <Button disabled={otp == null || otp.length !== 4} style={page.button} mode="contained" onPress={() => history.push('/home')}>
+                <Button disabled={otp == null || otp.length !== 4} style={page.button} mode="contained" onPress={() => navigation.navigate('Home')}>
                     Sign in
                 </Button>
             </View>

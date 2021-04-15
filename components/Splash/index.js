@@ -7,13 +7,11 @@ import {
 const windowHeight = Dimensions.get('window').height
 import React, { useEffect } from 'react';
 import SplashImage from '../../assets/images/splash.svg'
-import { useHistory } from 'react-router-native'
 
-const Splash = () => {
-    const history = useHistory()
+const Splash = ({ navigation }) => {
     useEffect(() => {
         setTimeout(() => {
-            history.push('/login')
+            navigation.navigate('Login')
         }, 4000)
     })
     return (

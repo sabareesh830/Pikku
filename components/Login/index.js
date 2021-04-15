@@ -2,18 +2,15 @@ import React, { useState } from 'react';
 import {
     StyleSheet,
     View,
-    Text,
     Dimensions,
     Platform,
     Keyboard
 } from 'react-native';
 const windowHeight = Dimensions.get('window').height
 import LoginIcon from '../../assets/images/login.svg'
-import { TextInput, Caption, Button, Title } from 'react-native-paper';
-import { useHistory } from 'react-router-native'
+import { TextInput, Button, Title } from 'react-native-paper';
 
-const Login = () => {
-    const history = useHistory()
+const Login = ({navigation}) => {
     const [mobileNumber, setMobileNumber] = useState(null)
     function handleInput(e) {
         if (e.length <= 10) {
@@ -29,7 +26,7 @@ const Login = () => {
             <LoginIcon height={350} width={300} />
             <View style={page.formFeild}>
                 <TextInput keyboardType={Platform.OS === 'android' ? "numeric" : "number-pad"} mode="outlined" onChangeText={e => handleInput(e)} value={mobileNumber} placeholder="Enter Mobile Number" />
-                <Button disabled={mobileNumber == null || mobileNumber.length !== 10} style={page.button} mode="contained" onPress={() => history.push('/otp')}>
+                <Button disabled={mobileNumber == null || mobileNumber.length !== 10} style={page.button} mode="contained" onPress={() => navigation.navigate('OTP')}>
                     Send OTP
                 </Button>
             </View>
