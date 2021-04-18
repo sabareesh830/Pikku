@@ -1,35 +1,18 @@
-import { View, Text, StyleSheet } from "react-native"
 import React from 'react'
-import { Searchbar, Button, Title } from 'react-native-paper';
+import { createStackNavigator } from '@react-navigation/stack';
+import CategoriesList from './CategoriesList'
+import CategoryDetails from './CategoryDetails'
 
 const Categories = () => {
+    const Stack = createStackNavigator();
     return (
-        <View style={page.container}>
-            <Searchbar placeholder="Search Pincode" />
-        </View>
+        <Stack.Navigator screenOptions={{
+            headerShown: false
+        }} initialRouteName="CategoriesList">
+            <Stack.Screen name="CategoriesList" component={CategoriesList} />
+            <Stack.Screen name="CategoryDetails" component={CategoryDetails} />
+        </Stack.Navigator>
     )
 }
-const page = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: '100%',
-        margin: 0,
-        padding: 10,
-        backgroundColor: 'white'
-    },
-    formFeild: {
-        width: '80%'
-    },
-    button: {
-        marginTop: 15,
-        padding: 9
-    },
-    heading: {
-        fontSize: 30,
-        color: '#6C63FF',
-        marginBottom: 20
-    }
 
-
-});
 export default Categories
