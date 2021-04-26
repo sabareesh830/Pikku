@@ -5,9 +5,12 @@ import Categories from '../Categories'
 import Orders from '../Orders'
 import Favourites from '../Favourites'
 import Coupons from '../Coupons'
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import { View, Button, Text } from 'react-native'
 
 const Tab = createMaterialBottomTabNavigator();
-const Home = ({ navigation }) => {
+function HomeScreen({ navigation }) {
     return (
         <Tab.Navigator
             shifting={false}
@@ -39,6 +42,60 @@ const Home = ({ navigation }) => {
             <Tab.Screen name="Favourite" component={Favourites} />
             <Tab.Screen name="Coupons" component={Coupons} />
         </Tab.Navigator>
+    );
+}
+
+const Profile = () => {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>
+                Profile
+        </Text>
+        </View>
+    )
+}
+
+const Bussiness = () => {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>
+                Bussiness
+        </Text>
+        </View>
+    )
+}
+
+const Subscription = () => {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>
+                Subscription
+        </Text>
+        </View>
+    )
+}
+
+const HelpnSupport = () => {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>
+                Help and Support
+        </Text>
+        </View>
+    )
+}
+
+const Drawer = createDrawerNavigator();
+const Home = ({ navigation }) => {
+    return (
+
+        <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={HomeScreen} />
+            <Drawer.Screen name="My Profile" component={Profile} />
+            <Drawer.Screen name="Add Business" component={Bussiness} />
+            <Drawer.Screen name="My Subscription" component={Subscription} />
+            <Drawer.Screen name="Help & Support" component={HelpnSupport} />
+        </Drawer.Navigator>
     );
 }
 export default Home

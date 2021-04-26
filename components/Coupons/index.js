@@ -1,55 +1,39 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import { Title, IconButton, Card, Paragraph, Chip, Button, Caption } from 'react-native-paper'
+import { Title, IconButton, Card, Paragraph, Chip, Button, Caption, Subheading } from 'react-native-paper'
 
 const data = [
     {
         id: 1,
+        name: 'Free Trail',
+        // coupon: 'FLAT20%OFF',
+        valid: '15 Days'
+    },
+    {
+        id: 1,
         name: 'Coupon1',
         coupon: 'FLAT20%OFF',
-        valid: '23-07-2021'
+        valid: '10 Days'
     },
     {
         id: 2,
         name: 'Coupon2',
         coupon: 'SUPER100',
-        valid: '28-07-2021'
+        valid: '1 Month'
     },
     {
         id: 3,
         name: 'Coupon3',
         coupon: 'FLAT500OFF',
-        valid: '01-10-2021'
+        valid: '6 Months'
     },
     {
         id: 4,
         name: 'Coupon4',
         coupon: 'FLAT400OFF',
-        valid: '28-07-2021'
+        valid: '1 Year'
     },
-    {
-        id: 5,
-        name: 'Coupon5',
-        coupon: 'FLAT300OFF',
-        valid: '01-10-2021'
-    },
-    {
-        id: 6,
-        name: 'Coupon6',
-        coupon: 'FLAT200OFF',
-        valid: '01-10-2021'
-    }, {
-        id: 7,
-        name: 'Coupon7',
-        coupon: 'FLAT100OFF',
-        valid: '28-07-2021'
-    },
-    {
-        id: 8,
-        name: 'Coupon8',
-        coupon: 'SUPER100',
-        valid: '01-10-2021'
-    }
+ 
 ]
 
 const Coupons = (props) => {
@@ -62,6 +46,7 @@ const Coupons = (props) => {
             </View>
             <View style={{ flex: 10 }}>
                 <ScrollView style={page.cardsContainer}>
+                    <Subheading>My Subscription</Subheading>
                     {
                         data.map((d, i) => (
                             <Card key={i} style={page.card}>
@@ -70,9 +55,16 @@ const Coupons = (props) => {
                                         <View style={{flex:1,flexDirection:'row',alignItems:'center'}}>
                                             <Title>{d.name}
                                             </Title>
-                                            <Chip style={{marginLeft:10}}>{d.coupon}</Chip>
+                                            {
+                                                d.coupon?
+                                                <Chip style={{marginLeft:10}}>{d.coupon}</Chip>:null
+                                            }
+                                           
                                         </View>
-                                        <Button icon="cart" mode="contained">Buy</Button>
+                                        {
+                                            d.coupon? <Button icon="cart" mode="contained">Buy</Button>:null
+                                        }
+                                       
                                     </View>
                                    
                                     <Caption><Text style={{ fontWeight: 'bold' }}>Valid: </Text>

@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, Keyboard } from "react-native"
 import React, { useState } from 'react'
-import { Searchbar, Title, Avatar, Card, Paragraph } from 'react-native-paper';
+import { Searchbar, Title, Avatar, Card, Paragraph, IconButton } from 'react-native-paper';
 
 
 const data = [{
@@ -23,31 +23,11 @@ const data = [{
     name: 'Category4',
     para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     image: 'https://picsum.photos/400'
-}, {
-    id: 5,
-    name: 'Category5',
-    para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    image: 'https://picsum.photos/500'
-}, {
-    id: 6,
-    name: 'Category6',
-    para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    image: 'https://picsum.photos/600'
-}, {
-    id: 7,
-    name: 'Category7',
-    para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    image: 'https://picsum.photos/700'
-}, {
-    id: 8,
-    name: 'Category8',
-    para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    image: 'https://picsum.photos/800'
 }]
 
 const CategoriesList = (props) => {
     const [pincode, setPincode] = useState('')
-    const [catData, setCatData] = useState([])
+    const [catData, setCatData] = useState([...data])
 
     const handlePincode = query => {
         if (query.length <= 6) {
@@ -58,36 +38,44 @@ const CategoriesList = (props) => {
             setCatData(data)
             Keyboard.dismiss()
         }
-        if(query==''){
-            setCatData([])
+        if (query == '') {
+            setCatData(data)
         }
     }
     return (
-        <View style={page.container}>
-            <Searchbar value={pincode} keyboardType={Platform.OS === 'android' ? "numeric" : "number-pad"} style={page.formFeild} onChangeText={handlePincode} placeholder="Search Pincode" />
-            <ScrollView>
-                <View style={page.cardsContainer}>
-                    {
-                        catData.map((d, i) => (
-                            <TouchableOpacity
-                                key={i}
-                                style={page.card}
-                                activeOpacity={0.9}
-                                onPress={() => props.navigation.navigate('CategoryDetails', d)}
-                            >
-                                <Card style={{ elevation: 4 }} >
-                                    <Card.Cover style={page.cardImage} source={{ uri: d.image }} />
-                                    <Card.Content>
-                                        <Title>{d.name}</Title>
-                                        <Paragraph>{d.para}</Paragraph>
-                                    </Card.Content>
-                                </Card>
-                            </TouchableOpacity>
-                        ))
-                    }
-                </View>
-            </ScrollView>
-        </View>
+        <>
+            <View style={page.header}>
+                <IconButton icon="menu" onPress={() => props.navigation.openDrawer()}></IconButton>
+                <Searchbar  value={pincode} keyboardType={Platform.OS === 'android' ? "numeric" : "number-pad"} style={page.formFeild} onChangeText={handlePincode} placeholder="Search Pincode" />
+                <IconButton icon="bell" onPress={() => console.log('clled')}></IconButton>
+            </View>
+            <View style={page.container}>
+
+
+                <ScrollView>
+                    <View style={page.cardsContainer}>
+                        {
+                            catData.map((d, i) => (
+                                <TouchableOpacity
+                                    key={i}
+                                    style={page.card}
+                                    activeOpacity={0.9}
+                                    onPress={() => props.navigation.navigate('CategoryDetails', d)}
+                                >
+                                    <Card style={{ elevation: 4 }} >
+                                        <Card.Cover style={page.cardImage} source={{ uri: d.image }} />
+                                        <Card.Content>
+                                            <Title>{d.name}</Title>
+                                            <Paragraph>{d.para}</Paragraph>
+                                        </Card.Content>
+                                    </Card>
+                                </TouchableOpacity>
+                            ))
+                        }
+                    </View>
+                </ScrollView>
+            </View>
+        </>
     )
 }
 const page = StyleSheet.create({
@@ -98,7 +86,10 @@ const page = StyleSheet.create({
         backgroundColor: 'white'
     },
     formFeild: {
-        margin: 10
+        margin: 10,
+        width: '72%',
+        padding: 0,
+        elevation:0,
     },
     button: {
         marginTop: 15,
@@ -122,6 +113,15 @@ const page = StyleSheet.create({
     },
     cardImage: {
         height: 150
+    },
+    header: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: 'white',
+        padding:0,
+        elevation:4
     }
 
 });
