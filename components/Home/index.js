@@ -8,6 +8,7 @@ import Coupons from '../Coupons'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { View, Button, Text } from 'react-native'
+import Bussiness from '../Bussiness'
 
 const Tab = createMaterialBottomTabNavigator();
 function HomeScreen({ navigation }) {
@@ -55,15 +56,7 @@ const Profile = () => {
     )
 }
 
-const Bussiness = () => {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>
-                Bussiness
-        </Text>
-        </View>
-    )
-}
+
 
 const Subscription = () => {
     return (
@@ -91,9 +84,9 @@ const Home = ({ navigation }) => {
 
         <Drawer.Navigator initialRouteName="Home">
             <Drawer.Screen name="Home" component={HomeScreen} />
-            <Drawer.Screen name="My Profile" component={Profile} />
+            <Drawer.Screen name="My Profile" component={Favourites} />
             <Drawer.Screen name="Add Business" component={Bussiness} />
-            <Drawer.Screen name="My Subscription" component={Subscription} />
+            <Drawer.Screen name="My Subscription" component={Coupons} />
             <Drawer.Screen name="Help & Support" component={HelpnSupport} />
         </Drawer.Navigator>
     );

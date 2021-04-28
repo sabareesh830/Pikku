@@ -45,14 +45,11 @@ const CategoriesList = (props) => {
     return (
         <>
             <View style={page.header}>
-                <IconButton icon="menu" onPress={() => props.navigation.openDrawer()}></IconButton>
-                <Searchbar  value={pincode} keyboardType={Platform.OS === 'android' ? "numeric" : "number-pad"} style={page.formFeild} onChangeText={handlePincode} placeholder="Search Pincode" />
-                <IconButton icon="bell" onPress={() => console.log('clled')}></IconButton>
+                <IconButton style={{width:'10%'}} icon="menu" onPress={() => props.navigation.openDrawer()}></IconButton>
+                <Searchbar value={pincode} keyboardType={Platform.OS === 'android' ? "numeric" : "number-pad"} style={page.formFeild} onChangeText={handlePincode} placeholder="Search Pincode" />
+                <IconButton style={{width:'10%'}} icon="bell" onPress={() => props.navigation.navigate('Notifications')}></IconButton>
             </View>
             <View style={page.container}>
-
-
-                <ScrollView>
                     <View style={page.cardsContainer}>
                         {
                             catData.map((d, i) => (
@@ -73,7 +70,6 @@ const CategoriesList = (props) => {
                             ))
                         }
                     </View>
-                </ScrollView>
             </View>
         </>
     )
@@ -83,11 +79,14 @@ const page = StyleSheet.create({
         flex: 1,
         width: '100%',
         margin: 0,
-        backgroundColor: 'white'
+        display:'flex',
+        backgroundColor: 'white',
+        alignItems:'center',
+        justifyContent:'center',
     },
     formFeild: {
         margin: 10,
-        width: '72%',
+        width: '65%',
         padding: 0,
         elevation:0,
     },
@@ -106,13 +105,14 @@ const page = StyleSheet.create({
         flexWrap: "wrap",
         justifyContent: 'space-between',
         padding: 10,
+        alignItems:'center'
     },
     card: {
         width: '45%',
         marginBottom: 15
     },
     cardImage: {
-        height: 150
+        height: 120
     },
     header: {
         display: 'flex',
