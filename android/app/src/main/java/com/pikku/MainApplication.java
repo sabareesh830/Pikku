@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import io.github.elyx0.reactnativedocumentpicker.DocumentPickerPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.github.wumke.RNImmediatePhoneCall.RNImmediatePhoneCallPackage;
 import com.oblador.vectoricons.VectorIconsPackage;

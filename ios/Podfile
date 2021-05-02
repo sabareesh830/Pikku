@@ -18,6 +18,8 @@ target 'Pikku' do
 
   pod 'react-native-immediate-phone-call', :path => '../node_modules/react-native-immediate-phone-call'
 
+  pod 'react-native-document-picker', :path => '../node_modules/react-native-document-picker'
+
   target 'PikkuTests' do
     inherit! :complete
     # Pods for testing
