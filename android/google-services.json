@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "206130418404",
+    "project_id": "pikku-5d601",
+    "storage_bucket": "pikku-5d601.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206130418404:android:22a81619c28db6e55192f1",
+        "android_client_info": {
+          "package_name": "com.company.pikku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206130418404-b6j2rlom5f7nongrbckcocm4n2dig7jv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNLPmlnV7Z-wKnId28eb8LTSkuSmCUSsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206130418404-b6j2rlom5f7nongrbckcocm4n2dig7jv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

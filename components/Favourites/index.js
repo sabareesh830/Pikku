@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { Title, IconButton, Card, Paragraph, Chip, Button, Caption } from 'react-native-paper'
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 
 const data = [
     {
@@ -78,7 +79,7 @@ const Favourites = (props) => {
                                         <View style={{flex:1,flexDirection:'row',alignItems:'center'}}>
                                             <Title>{d.name}
                                             </Title>
-                                            <IconButton icon="phone" onPress={() => console.log('clled')}></IconButton>
+                                            <IconButton icon="phone" onPress={() => RNImmediatePhoneCall.immediatePhoneCall('0123456789')}></IconButton>
                                         </View>
 
                                         <Button icon="map-marker" mode="contained">Pick Up</Button>
