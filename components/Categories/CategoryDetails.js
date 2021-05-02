@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View, StyleSheet, ScrollView } from 'react-native'
 import { Title, IconButton, Card, Paragraph, Chip, Button, Caption } from 'react-native-paper';
 import StarRating from 'react-native-star-rating';
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 
 const data = [{
     id: 1,
@@ -65,7 +66,7 @@ const CategoryDetails = ({ route, navigation }) => {
                                         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                                             <Title>{d.name}
                                             </Title>
-                                            <IconButton icon="phone" onPress={() => console.log('clled')}></IconButton>
+                                            <IconButton icon="phone" onPress={() => RNImmediatePhoneCall.immediatePhoneCall('0123456789')}></IconButton>
                                         </View>
                                         <Button icon="map-marker" mode="contained">Pick Up</Button>
                                     </View>

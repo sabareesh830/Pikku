@@ -35,7 +35,6 @@ function HomeScreen({ navigation }) {
             initialRouteName="Categories">
             <Tab.Screen name="Categories" component={Categories} listeners={{
                 tabPress: () => {
-                    console.log('called')
                     navigation.navigate('CategoriesList')
                 }
             }} />
@@ -81,7 +80,6 @@ const HelpnSupport = () => {
 const Drawer = createDrawerNavigator();
 const Home = ({ navigation }) => {
     return (
-
         <Drawer.Navigator initialRouteName="Home">
             <Drawer.Screen name="Home" component={HomeScreen} />
             <Drawer.Screen name="My Profile" component={Favourites} />
