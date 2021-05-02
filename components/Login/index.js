@@ -86,7 +86,11 @@ const page = StyleSheet.create({
         backgroundColor: 'white'
     },
     formFeild: {
-        width: '80%'
+        width: '100%',
+        textAlign:'center',
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     button: {
         marginTop: 15,

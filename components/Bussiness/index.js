@@ -66,10 +66,10 @@ const Bussiness = ({navigation}) => {
                     <TextInput mode="outlined" value={bussinessData.state} onChange={(e) => handleData('state', e.target.value)} label="State" placeholder="Enter State" />
                     <TextInput mode="outlined" value={bussinessData.phone} onChange={(e) => handleData('phone', e.target.value)} label="Contact Number" placeholder="Enter Contact Number" />
                     <Caption>Timing of Bussiness</Caption>
-                    <Button uppercase={false}  icon="clock"  style={page.picker} mode="outlined" onPress={() => { console.log(isOpenDatePickerVisible); setOpenDatePickerVisibility(true) }}>{bussinessData.openingTime == '' ? 'Opening Time' : `Opening Time - ${bussinessData.openingTime}`} </Button>
+                    <Button  uppercase={false}  icon="clock"  style={page.picker} mode="outlined" onPress={() => { console.log(isOpenDatePickerVisible); setOpenDatePickerVisibility(true) }}>{bussinessData.openingTime == '' ? 'OpenTime' : `Open Time - ${bussinessData.openingTime}`} </Button>
                     <Button uppercase={false} icon="clock" style={page.picker} mode="outlined" onPress={() => setBreakDatePickerVisibility(true)}>{bussinessData.breakTime == '' ? 'Break Time' : `Break Time - ${bussinessData.breakTime}`}</Button>
                     <Button uppercase={false} icon="clock" style={page.picker} mode="outlined" onPress={() => setCloseDatePickerVisibility(true)}>{bussinessData.closeTime == '' ? 'Close Time' : `Close Time - ${bussinessData.closeTime}`}</Button>
-                    <Button uppercase={false} icon="clock" style={page.picker} mode="outlined" onPress={handleDocSelection}>Upload Payment QR Code</Button>
+                    <Button uppercase={false} icon="upload" style={page.picker} mode="outlined" onPress={handleDocSelection}>Upload Payment QR Code</Button>
 
                     <DateTimePickerModal
                         isVisible={isOpenDatePickerVisible}
@@ -128,7 +128,7 @@ const page = StyleSheet.create({
     },
     picker: {
         marginBottom: 10,
-        padding:5
+        padding:5,
     }
 
 
