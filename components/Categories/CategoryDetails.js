@@ -68,7 +68,7 @@ const CategoryDetails = ({ route, navigation }) => {
                                             </Title>
                                             <IconButton icon="phone" onPress={() => RNImmediatePhoneCall.immediatePhoneCall('0123456789')}></IconButton>
                                         </View>
-                                        <Button icon="map-marker" mode="contained">Pick Up</Button>
+                                        <Button onPress={()=>navigation.navigate('PicknDrop')} icon="map-marker" mode="contained">Pick Up</Button>
                                     </View>
                                     <Caption><Text style={{ fontWeight: 'bold' }}>Address: </Text>
                                         {d.address}</Caption>
